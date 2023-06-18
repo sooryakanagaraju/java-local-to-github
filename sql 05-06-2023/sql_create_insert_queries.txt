@@ -1,0 +1,39 @@
+CREATE TABLE Products(prodId number(5) NOT NULL,pname VARCHAR(20),price number(5),PRIMARY KEY(prodId));
+CREATE TABLE Orders(orderNumber number(5) NOT NULL,paymentState VARCHAR(12),creationTime Date,totalAmount number(5),PRIMARY KEY (orderNumber));
+CREATE TABLE OrderDetail(orderNumber number(5) NOT NULL,prodId number(5) NOT NULL,
+			FOREIGN KEY(orderNumber) REFERENCES Orders(orderNumber),
+			FOREIGN KEY(prodId) REFERENCES Products(prodId));
+            
+insert into Products values(01,'dates',5000);
+insert into Products values(02,'walnut',6000);
+insert into Products values(03,'almond',8200);
+insert into Products values(04,'drygrapes',2000);
+insert into Products values(05,'peanut',7000);
+
+select * from products
+delete from products;
+
+insert into Customers values(11,'soorya',1253342543);
+insert into Customers values(12,'ayroos',8681879175);
+insert into Customers values(13,'swetha',9841241215);
+insert into Customers values(14,'athews',9361559532);
+insert into Customers values(15,'shyam',9871233242);
+
+select * from customers
+desc customers
+desc orders
+
+insert into Orders values(1,'Success','15-05-2022',2000);
+insert into Orders values(2,'Success','15-01-2023',40000);
+insert into Orders values(3,'Failed','11-07-2022',5000);
+insert into Orders values(4,'Failed','07-09-2022',6000);
+insert into Orders values(5,'Success','21-03-2021',4000);
+
+select * from orders;
+
+
+insert into OrderDetails values(1,01);
+insert into OrderDetails values(2,02);
+insert into OrderDetails values(3,03);
+insert into OrderDetails values(4,04);
+insert into OrderDetails values(5,05);
